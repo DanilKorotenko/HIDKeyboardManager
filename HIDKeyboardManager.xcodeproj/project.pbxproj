@@ -62,14 +62,30 @@
 		DA38FBB92B49AA860064FA39 /* HIDKeyboardManagerApp */ = {
 			isa = PBXGroup;
 			children = (
-				DA38FBBA2B49AA860064FA39 /* AppDelegate.h */,
-				DA38FBBB2B49AA860064FA39 /* AppDelegate.m */,
-				DA38FBBD2B49AA870064FA39 /* Assets.xcassets */,
-				DA38FBBF2B49AA870064FA39 /* MainMenu.xib */,
+				DA38FBC92B49AACC0064FA39 /* Resources */,
+				DA38FBC82B49AABB0064FA39 /* Sources */,
 				DA38FBC22B49AA870064FA39 /* main.m */,
-				DA38FBC42B49AA870064FA39 /* HIDKeyboardManagerApp.entitlements */,
 			);
 			path = HIDKeyboardManagerApp;
+			sourceTree = "<group>";
+		};
+		DA38FBC82B49AABB0064FA39 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DA38FBBA2B49AA860064FA39 /* AppDelegate.h */,
+				DA38FBBB2B49AA860064FA39 /* AppDelegate.m */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		DA38FBC92B49AACC0064FA39 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DA38FBBD2B49AA870064FA39 /* Assets.xcassets */,
+				DA38FBBF2B49AA870064FA39 /* MainMenu.xib */,
+				DA38FBC42B49AA870064FA39 /* HIDKeyboardManagerApp.entitlements */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		DA56D4092B49A08000A6FE78 = {
@@ -231,7 +247,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = HIDKeyboardManagerApp/HIDKeyboardManagerApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = HIDKeyboardManagerApp/Resources/HIDKeyboardManagerApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -257,7 +273,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = HIDKeyboardManagerApp/HIDKeyboardManagerApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = HIDKeyboardManagerApp/Resources/HIDKeyboardManagerApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
