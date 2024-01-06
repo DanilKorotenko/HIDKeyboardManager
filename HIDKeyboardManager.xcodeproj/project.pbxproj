@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA38FBBC2B49AA860064FA39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA38FBBB2B49AA860064FA39 /* AppDelegate.m */; };
+		DA38FBBE2B49AA870064FA39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA38FBBD2B49AA870064FA39 /* Assets.xcassets */; };
+		DA38FBC12B49AA870064FA39 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA38FBBF2B49AA870064FA39 /* MainMenu.xib */; };
+		DA38FBC32B49AA870064FA39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA38FBC22B49AA870064FA39 /* main.m */; };
 		DA56D4162B49A08000A6FE78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA56D4152B49A08000A6FE78 /* main.m */; };
 		DA56D41F2B49A9B800A6FE78 /* HIDKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA56D41E2B49A9B800A6FE78 /* HIDKeyboardManager.m */; };
 /* End PBXBuildFile section */
@@ -24,6 +28,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DA38FBB82B49AA860064FA39 /* HIDKeyboardManagerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HIDKeyboardManagerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA38FBBA2B49AA860064FA39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DA38FBBB2B49AA860064FA39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DA38FBBD2B49AA870064FA39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA38FBC02B49AA870064FA39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		DA38FBC22B49AA870064FA39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DA38FBC42B49AA870064FA39 /* HIDKeyboardManagerApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HIDKeyboardManagerApp.entitlements; sourceTree = "<group>"; };
 		DA56D4122B49A08000A6FE78 /* HIDKeyboardManager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HIDKeyboardManager; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA56D4152B49A08000A6FE78 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DA56D41D2B49A9B800A6FE78 /* HIDKeyboardManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HIDKeyboardManager.h; sourceTree = "<group>"; };
@@ -31,6 +42,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DA38FBB52B49AA860064FA39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DA56D40F2B49A08000A6FE78 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -41,11 +59,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA38FBB92B49AA860064FA39 /* HIDKeyboardManagerApp */ = {
+			isa = PBXGroup;
+			children = (
+				DA38FBBA2B49AA860064FA39 /* AppDelegate.h */,
+				DA38FBBB2B49AA860064FA39 /* AppDelegate.m */,
+				DA38FBBD2B49AA870064FA39 /* Assets.xcassets */,
+				DA38FBBF2B49AA870064FA39 /* MainMenu.xib */,
+				DA38FBC22B49AA870064FA39 /* main.m */,
+				DA38FBC42B49AA870064FA39 /* HIDKeyboardManagerApp.entitlements */,
+			);
+			path = HIDKeyboardManagerApp;
+			sourceTree = "<group>";
+		};
 		DA56D4092B49A08000A6FE78 = {
 			isa = PBXGroup;
 			children = (
 				DA56D41C2B49A7F800A6FE78 /* HIDKeyboardManager */,
 				DA56D4142B49A08000A6FE78 /* HIDKeyboardManagerTool */,
+				DA38FBB92B49AA860064FA39 /* HIDKeyboardManagerApp */,
 				DA56D4132B49A08000A6FE78 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				DA56D4122B49A08000A6FE78 /* HIDKeyboardManager */,
+				DA38FBB82B49AA860064FA39 /* HIDKeyboardManagerApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,6 +111,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DA38FBB72B49AA860064FA39 /* HIDKeyboardManagerApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA38FBC72B49AA870064FA39 /* Build configuration list for PBXNativeTarget "HIDKeyboardManagerApp" */;
+			buildPhases = (
+				DA38FBB42B49AA860064FA39 /* Sources */,
+				DA38FBB52B49AA860064FA39 /* Frameworks */,
+				DA38FBB62B49AA860064FA39 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HIDKeyboardManagerApp;
+			productName = HIDKeyboardManagerApp;
+			productReference = DA38FBB82B49AA860064FA39 /* HIDKeyboardManagerApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 		DA56D4112B49A08000A6FE78 /* HIDKeyboardManager */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA56D4192B49A08000A6FE78 /* Build configuration list for PBXNativeTarget "HIDKeyboardManager" */;
@@ -104,6 +154,9 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					DA38FBB72B49AA860064FA39 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
 					DA56D4112B49A08000A6FE78 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -123,11 +176,33 @@
 			projectRoot = "";
 			targets = (
 				DA56D4112B49A08000A6FE78 /* HIDKeyboardManager */,
+				DA38FBB72B49AA860064FA39 /* HIDKeyboardManagerApp */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		DA38FBB62B49AA860064FA39 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA38FBBE2B49AA870064FA39 /* Assets.xcassets in Resources */,
+				DA38FBC12B49AA870064FA39 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		DA38FBB42B49AA860064FA39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA38FBC32B49AA870064FA39 /* main.m in Sources */,
+				DA38FBBC2B49AA860064FA39 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DA56D40E2B49A08000A6FE78 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -139,7 +214,70 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		DA38FBBF2B49AA870064FA39 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA38FBC02B49AA870064FA39 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		DA38FBC52B49AA870064FA39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HIDKeyboardManagerApp/HIDKeyboardManagerApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QBPW9LPK8E;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danilkorotenko.HIDKeyboardManagerApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		DA38FBC62B49AA870064FA39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HIDKeyboardManagerApp/HIDKeyboardManagerApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QBPW9LPK8E;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danilkorotenko.HIDKeyboardManagerApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
 		DA56D4172B49A08000A6FE78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -278,6 +416,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DA38FBC72B49AA870064FA39 /* Build configuration list for PBXNativeTarget "HIDKeyboardManagerApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA38FBC52B49AA870064FA39 /* Debug */,
+				DA38FBC62B49AA870064FA39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DA56D40D2B49A08000A6FE78 /* Build configuration list for PBXProject "HIDKeyboardManager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
