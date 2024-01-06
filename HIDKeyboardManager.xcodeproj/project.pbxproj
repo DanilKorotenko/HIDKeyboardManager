@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA56D4162B49A08000A6FE78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA56D4152B49A08000A6FE78 /* main.m */; };
+		DA56D41F2B49A9B800A6FE78 /* HIDKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA56D41E2B49A9B800A6FE78 /* HIDKeyboardManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		DA56D4122B49A08000A6FE78 /* HIDKeyboardManager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HIDKeyboardManager; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA56D4152B49A08000A6FE78 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DA56D41D2B49A9B800A6FE78 /* HIDKeyboardManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HIDKeyboardManager.h; sourceTree = "<group>"; };
+		DA56D41E2B49A9B800A6FE78 /* HIDKeyboardManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HIDKeyboardManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +44,8 @@
 		DA56D4092B49A08000A6FE78 = {
 			isa = PBXGroup;
 			children = (
-				DA56D4142B49A08000A6FE78 /* HIDKeyboardManager */,
+				DA56D41C2B49A7F800A6FE78 /* HIDKeyboardManager */,
+				DA56D4142B49A08000A6FE78 /* HIDKeyboardManagerTool */,
 				DA56D4132B49A08000A6FE78 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,10 +58,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DA56D4142B49A08000A6FE78 /* HIDKeyboardManager */ = {
+		DA56D4142B49A08000A6FE78 /* HIDKeyboardManagerTool */ = {
 			isa = PBXGroup;
 			children = (
 				DA56D4152B49A08000A6FE78 /* main.m */,
+			);
+			path = HIDKeyboardManagerTool;
+			sourceTree = "<group>";
+		};
+		DA56D41C2B49A7F800A6FE78 /* HIDKeyboardManager */ = {
+			isa = PBXGroup;
+			children = (
+				DA56D41D2B49A9B800A6FE78 /* HIDKeyboardManager.h */,
+				DA56D41E2B49A9B800A6FE78 /* HIDKeyboardManager.m */,
 			);
 			path = HIDKeyboardManager;
 			sourceTree = "<group>";
@@ -119,6 +132,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA56D41F2B49A9B800A6FE78 /* HIDKeyboardManager.m in Sources */,
 				DA56D4162B49A08000A6FE78 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
