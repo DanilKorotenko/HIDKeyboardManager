@@ -11,10 +11,12 @@
 		DA38FBBE2B49AA870064FA39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA38FBBD2B49AA870064FA39 /* Assets.xcassets */; };
 		DA38FBC12B49AA870064FA39 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA38FBBF2B49AA870064FA39 /* MainMenu.xib */; };
 		DA38FBC32B49AA870064FA39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA38FBC22B49AA870064FA39 /* main.m */; };
-		DA38FBCA2B49ABF10064FA39 /* HIDKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA56D41E2B49A9B800A6FE78 /* HIDKeyboardManager.m */; };
-		DA38FBCD2B49B50C0064FA39 /* HIDKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = DA38FBCC2B49B50C0064FA39 /* HIDKeyboard.m */; };
-		DA38FBCE2B49B5110064FA39 /* HIDKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = DA38FBCC2B49B50C0064FA39 /* HIDKeyboard.m */; };
+		DA38FBCA2B49ABF10064FA39 /* HIDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA56D41E2B49A9B800A6FE78 /* HIDManager.m */; };
+		DA38FBCD2B49B50C0064FA39 /* HIDDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = DA38FBCC2B49B50C0064FA39 /* HIDDevice.m */; };
+		DA38FBCE2B49B5110064FA39 /* HIDDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = DA38FBCC2B49B50C0064FA39 /* HIDDevice.m */; };
 		DA38FBD02B49BF7A0064FA39 /* HID_device_usage_strings.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA38FBCF2B49BF7A0064FA39 /* HID_device_usage_strings.plist */; };
+		DA38FBD32B4AF8260064FA39 /* HIDValue.m in Sources */ = {isa = PBXBuildFile; fileRef = DA38FBD22B4AF8260064FA39 /* HIDValue.m */; };
+		DA38FBD42B4AF8580064FA39 /* HIDValue.m in Sources */ = {isa = PBXBuildFile; fileRef = DA38FBD22B4AF8260064FA39 /* HIDValue.m */; };
 		DA56D4162B49A08000A6FE78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA56D4152B49A08000A6FE78 /* main.m */; };
 /* End PBXBuildFile section */
 
@@ -38,13 +40,15 @@
 		DA38FBC02B49AA870064FA39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		DA38FBC22B49AA870064FA39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DA38FBC42B49AA870064FA39 /* HIDKeyboardManagerApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HIDKeyboardManagerApp.entitlements; sourceTree = "<group>"; };
-		DA38FBCB2B49B50C0064FA39 /* HIDKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HIDKeyboard.h; sourceTree = "<group>"; };
-		DA38FBCC2B49B50C0064FA39 /* HIDKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HIDKeyboard.m; sourceTree = "<group>"; };
+		DA38FBCB2B49B50C0064FA39 /* HIDDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HIDDevice.h; sourceTree = "<group>"; };
+		DA38FBCC2B49B50C0064FA39 /* HIDDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HIDDevice.m; sourceTree = "<group>"; };
 		DA38FBCF2B49BF7A0064FA39 /* HID_device_usage_strings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HID_device_usage_strings.plist; sourceTree = "<group>"; };
+		DA38FBD12B4AF8260064FA39 /* HIDValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HIDValue.h; sourceTree = "<group>"; };
+		DA38FBD22B4AF8260064FA39 /* HIDValue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HIDValue.m; sourceTree = "<group>"; };
 		DA56D4122B49A08000A6FE78 /* HIDKeyboardManager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HIDKeyboardManager; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA56D4152B49A08000A6FE78 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DA56D41D2B49A9B800A6FE78 /* HIDKeyboardManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HIDKeyboardManager.h; sourceTree = "<group>"; };
-		DA56D41E2B49A9B800A6FE78 /* HIDKeyboardManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HIDKeyboardManager.m; sourceTree = "<group>"; };
+		DA56D41D2B49A9B800A6FE78 /* HIDManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HIDManager.h; sourceTree = "<group>"; };
+		DA56D41E2B49A9B800A6FE78 /* HIDManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HIDManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,10 +129,12 @@
 			isa = PBXGroup;
 			children = (
 				DA38FBCF2B49BF7A0064FA39 /* HID_device_usage_strings.plist */,
-				DA56D41D2B49A9B800A6FE78 /* HIDKeyboardManager.h */,
-				DA56D41E2B49A9B800A6FE78 /* HIDKeyboardManager.m */,
-				DA38FBCB2B49B50C0064FA39 /* HIDKeyboard.h */,
-				DA38FBCC2B49B50C0064FA39 /* HIDKeyboard.m */,
+				DA56D41D2B49A9B800A6FE78 /* HIDManager.h */,
+				DA56D41E2B49A9B800A6FE78 /* HIDManager.m */,
+				DA38FBCB2B49B50C0064FA39 /* HIDDevice.h */,
+				DA38FBCC2B49B50C0064FA39 /* HIDDevice.m */,
+				DA38FBD12B4AF8260064FA39 /* HIDValue.h */,
+				DA38FBD22B4AF8260064FA39 /* HIDValue.m */,
 			);
 			path = HIDKeyboardManager;
 			sourceTree = "<group>";
@@ -225,8 +231,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA38FBC32B49AA870064FA39 /* main.m in Sources */,
-				DA38FBCA2B49ABF10064FA39 /* HIDKeyboardManager.m in Sources */,
-				DA38FBCE2B49B5110064FA39 /* HIDKeyboard.m in Sources */,
+				DA38FBD42B4AF8580064FA39 /* HIDValue.m in Sources */,
+				DA38FBCA2B49ABF10064FA39 /* HIDManager.m in Sources */,
+				DA38FBCE2B49B5110064FA39 /* HIDDevice.m in Sources */,
 				DA38FBBC2B49AA860064FA39 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,7 +242,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA38FBCD2B49B50C0064FA39 /* HIDKeyboard.m in Sources */,
+				DA38FBD32B4AF8260064FA39 /* HIDValue.m in Sources */,
+				DA38FBCD2B49B50C0064FA39 /* HIDDevice.m in Sources */,
 				DA56D4162B49A08000A6FE78 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

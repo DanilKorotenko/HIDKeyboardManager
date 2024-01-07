@@ -5,16 +5,19 @@
 //  Created by Danil Korotenko on 1/6/24.
 //
 
-#import "HIDKeyboard.h"
+#import "HIDDevice.h"
 
-@interface HIDKeyboard ()
+static void Handle_IOHIDValueCallback(void *inContext,
+    IOReturn inResult, void *inSender, IOHIDValueRef inIOHIDValueRef);
+
+@interface HIDDevice ()
 
 @property (readonly) NSNumber *vendorIDNumber;
 @property (readonly) NSNumber *productIDNumber;
 
 @end
 
-@implementation HIDKeyboard
+@implementation HIDDevice
 {
     IOHIDDeviceRef _deviceRef;
 }
@@ -29,9 +32,9 @@
 
 + (instancetype)createWithDeviceRef:(IOHIDDeviceRef)aDeviceRef
 {
-    if ([HIDKeyboard isKeyboard:aDeviceRef])
+    if ([HIDDevice isKeyboard:aDeviceRef])
     {
-        return [[HIDKeyboard alloc] initWithIOHIDDevice:aDeviceRef];
+        return [[HIDDevice alloc] initWithIOHIDDevice:aDeviceRef];
     }
     return nil;
 }
@@ -80,8 +83,19 @@
         }
 
         _deviceRef = (IOHIDDeviceRef)CFRetain(aDeviceRef);
+        IOHIDDeviceRegisterInputValueCallback(_deviceRef,
+            Handle_IOHIDValueCallback,
+            (__bridge void *)(self));
     }
     return self;
+}
+
+- (void)dealloc
+{
+    if(_deviceRef)
+    {
+        CFRelease(_deviceRef);
+    }
 }
 
 - (NSString *)description
@@ -97,7 +111,7 @@
     }
     else
     {
-        HIDKeyboard *otherDevice = (HIDKeyboard *)other;
+        HIDDevice *otherDevice = (HIDDevice *)other;
         return _deviceRef == otherDevice->_deviceRef;
     }
 }
@@ -169,7 +183,7 @@
     if (nil == vendorName)
     {
         NSString *vendorKey = [NSString stringWithFormat:@"%ld", (long)self.vendorID];
-        NSDictionary *vendorDictionary = [[HIDKeyboard deviceUsageStrings] objectForKey:vendorKey];
+        NSDictionary *vendorDictionary = [[HIDDevice deviceUsageStrings] objectForKey:vendorKey];
         if (vendorDictionary)
         {
             vendorName = [vendorDictionary objectForKey:@"Name"];
@@ -214,7 +228,7 @@
     if (nil == productName)
     {
         NSString *vendorKey = [NSString stringWithFormat:@"%ld", (long)self.vendorID];
-        NSDictionary *vendorDictionary = [[HIDKeyboard deviceUsageStrings] objectForKey:vendorKey];
+        NSDictionary *vendorDictionary = [[HIDDevice deviceUsageStrings] objectForKey:vendorKey];
         if (vendorDictionary)
         {
             NSString *productKey = [NSString stringWithFormat:@"%ld", (long)self.productID];
@@ -244,3 +258,36 @@
 }
 
 @end
+
+static void Handle_IOHIDValueCallback(void *inContext,
+    IOReturn inResult, void *inSender, IOHIDValueRef inIOHIDValueRef)
+{
+    HIDDevice *device = (__bridge HIDDevice *)inContext;
+
+    do
+    {
+        // is this value's element valid?
+        IOHIDElementRef tIOHIDElementRef = IOHIDValueGetElement(inIOHIDValueRef);
+        if (!tIOHIDElementRef)
+        {
+            NSLog(@"tIOHIDElementRef == NULL");
+            break;                                                              // (no)
+        }
+
+        // length ok?
+        CFIndex length = IOHIDValueGetLength(inIOHIDValueRef);
+        if (length > sizeof(double_t))
+        {
+            break;                                                              // (no)
+        }
+
+        // find the element for this IOHIDElementRef
+//        IOHIDElementModel *tIOHIDElementModel = [tIOHIDDeviceWindowCtrl getIOHIDElementModelForIOHIDElementRef:tIOHIDElementRef];
+//        if (tIOHIDElementModel)
+//        {
+//            // update its value
+//            tIOHIDElementModel.phyVal = IOHIDValueGetScaledValue(inIOHIDValueRef,
+//                                                                 kIOHIDValueScaleTypePhysical);
+//        }
+    } while (false);
+}

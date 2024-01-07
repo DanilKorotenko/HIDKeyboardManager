@@ -5,53 +5,53 @@
 //  Created by Danil Korotenko on 1/6/24.
 //
 
-#import "HIDKeyboardManager.h"
+#import "HIDManager.h"
 
 #include <IOKit/hid/IOHIDLib.h>
 #include <IOKit/hidsystem/IOHIDLib.h>
 
-#include "HIDKeyboard.h"
+#include "HIDDevice.h"
 
-NSString * const kHIDKeyboardAddedNotificationName = @"HIDKeyboardAddedNotificationName";
-NSString * const kHIDKeyboardRemovedNotificationName = @"HIDKeyboardRemovedNotificationName";
+NSString * const kHIDDeviceAddedNotificationName = @"HIDDeviceAddedNotificationName";
+NSString * const kHIDDeviceRemovedNotificationName = @"HIDDeviceRemovedNotificationName";
 
-static NSString * const kHIDKeyboardManagerErrorDomain = @"HIDKeyboardManagerErrorDomain";
+static NSString * const kHIDDeviceManagerErrorDomain = @"HIDDeviceManagerErrorDomain";
 
 typedef enum : NSUInteger
 {
-    kHIDKeyboardManagerErrorCodeSuccess = 0,
-    kHIDKeyboardManagerErrorCodeAccessDenied,
+    kHIDDeviceManagerErrorCodeSuccess = 0,
+    kHIDDeviceManagerErrorCodeAccessDenied,
 
 } HIDKeyboardManagerErrorCode;
 
 static void Handle_DeviceMatchingCallback(void *inContext, IOReturn inResult, void *inSender, IOHIDDeviceRef inIOHIDDeviceRef);
 static void Handle_DeviceRemovalCallback(void *inContext, IOReturn inResult, void *inSender, IOHIDDeviceRef inIOHIDDeviceRef);
 
-@interface HIDKeyboardManager ()
+@interface HIDManager ()
 
 @property(strong) NSMutableArray *allDevicesArray;
 
 @end
 
-@implementation HIDKeyboardManager
+@implementation HIDManager
 {
     IOHIDManagerRef _ioHIDManagerRef;
 }
 
-+ (HIDKeyboardManager *)sharedManager
++ (HIDManager *)sharedManager
 {
-    static HIDKeyboardManager *sharedManager = nil;
+    static HIDManager *sharedManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken,
     ^{
-        sharedManager = [[HIDKeyboardManager alloc] init];
+        sharedManager = [[HIDManager alloc] init];
     });
     return sharedManager;
 }
 
 + (NSError *)accessDeniedError
 {
-    return [NSError errorWithDomain:kHIDKeyboardManagerErrorDomain code:kHIDKeyboardManagerErrorCodeAccessDenied
+    return [NSError errorWithDomain:kHIDDeviceManagerErrorDomain code:kHIDDeviceManagerErrorCodeAccessDenied
         userInfo:@{NSLocalizedDescriptionKey: @"HID Access Denied"}];
 }
 
@@ -98,7 +98,7 @@ static void Handle_DeviceRemovalCallback(void *inContext, IOReturn inResult, voi
     {
         if (anError != NULL)
         {
-            *anError = [HIDKeyboardManager accessDeniedError];
+            *anError = [HIDManager accessDeniedError];
         }
         return NO;
     }
@@ -141,7 +141,7 @@ static void Handle_DeviceRemovalCallback(void *inContext, IOReturn inResult, voi
             result = NO;
             if (anError != NULL)
             {
-                *anError = [HIDKeyboardManager errorForCode:tIOReturn];
+                *anError = [HIDManager errorForCode:tIOReturn];
             }
             NSLog(@"%s: IOHIDManagerOpen error: 0x%08u",
                     __PRETTY_FUNCTION__,
@@ -165,23 +165,23 @@ static void Handle_DeviceRemovalCallback(void *inContext, IOReturn inResult, voi
 
 #pragma mark -
 
-- (void)deviceAdded:(HIDKeyboard *)aDevice
+- (void)deviceAdded:(HIDDevice *)aDevice
 {
     [self.allDevicesArray addObject:aDevice];
 
     [[NSNotificationCenter defaultCenter]
-        postNotificationName:kHIDKeyboardAddedNotificationName
+        postNotificationName:kHIDDeviceAddedNotificationName
         object:aDevice];
 }
 
-- (void)deviceRemoved:(HIDKeyboard *)aDevice
+- (void)deviceRemoved:(HIDDevice *)aDevice
 {
     if ([self.allDevicesArray containsObject:aDevice])
     {
         [self.allDevicesArray removeObject:aDevice];
     }
     [[NSNotificationCenter defaultCenter]
-        postNotificationName:kHIDKeyboardRemovedNotificationName
+        postNotificationName:kHIDDeviceRemovedNotificationName
         object:aDevice];
 }
 
@@ -200,13 +200,13 @@ static void Handle_DeviceRemovalCallback(void *inContext, IOReturn inResult, voi
 static void Handle_DeviceMatchingCallback(void *inContext, IOReturn inResult, void *inSender,
     IOHIDDeviceRef inIOHIDDeviceRef)
 {
-    HIDKeyboard *device = [HIDKeyboard createWithDeviceRef:inIOHIDDeviceRef];
+    HIDDevice *device = [HIDDevice createWithDeviceRef:inIOHIDDeviceRef];
 
     if (device)
     {
         NSLog(@"device added: %@", device);
 
-        [(__bridge HIDKeyboardManager *)inContext deviceAdded:device];
+        [(__bridge HIDManager *)inContext deviceAdded:device];
     }
 }
 
@@ -216,12 +216,12 @@ static void Handle_DeviceMatchingCallback(void *inContext, IOReturn inResult, vo
 static void Handle_DeviceRemovalCallback(void *inContext, IOReturn inResult, void *inSender,
     IOHIDDeviceRef inIOHIDDeviceRef)
 {
-    HIDKeyboard *device = [HIDKeyboard createWithDeviceRef:inIOHIDDeviceRef];
+    HIDDevice *device = [HIDDevice createWithDeviceRef:inIOHIDDeviceRef];
 
     if (device)
     {
         NSLog(@"device removed: %@", device);
 
-        [(__bridge HIDKeyboardManager *)inContext deviceRemoved:device];
+        [(__bridge HIDManager *)inContext deviceRemoved:device];
     }
 }

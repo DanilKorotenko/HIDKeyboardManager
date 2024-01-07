@@ -6,8 +6,8 @@
 //
 
 #import "AppDelegate.h"
-#import "HIDKeyboardManager.h"
-#import "HIDKeyboard.h"
+#import "HIDManager.h"
+#import "HIDDevice.h"
 
 @interface AppDelegate ()
 
@@ -24,11 +24,11 @@
 {
     NSError *error = nil;
 
-    if (![[HIDKeyboardManager sharedManager] checkAccess:&error])
+    if (![[HIDManager sharedManager] checkAccess:&error])
     {
-        if ([[HIDKeyboardManager sharedManager] requestAccess])
+        if ([[HIDManager sharedManager] requestAccess])
         {
-            if (![[HIDKeyboardManager sharedManager] start:&error])
+            if (![[HIDManager sharedManager] start:&error])
             {
                 [NSApp presentError:error];
                 [NSApp terminate:self];
@@ -36,13 +36,13 @@
         }
         else
         {
-            [NSApp presentError:[HIDKeyboardManager accessDeniedError]];
+            [NSApp presentError:[HIDManager accessDeniedError]];
             [NSApp terminate:self];
         }
     }
     else
     {
-        if (![[HIDKeyboardManager sharedManager] start:&error])
+        if (![[HIDManager sharedManager] start:&error])
         {
             [NSApp presentError:error];
             [NSApp terminate:self];
@@ -50,14 +50,14 @@
     }
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceAdded:)
-        name:kHIDKeyboardAddedNotificationName object:nil];
+        name:kHIDDeviceAddedNotificationName object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceRemoved:)
-        name:kHIDKeyboardRemovedNotificationName object:nil];
+        name:kHIDDeviceRemovedNotificationName object:nil];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
-    [[HIDKeyboardManager sharedManager] stop];
+    [[HIDManager sharedManager] stop];
 }
 
 - (BOOL)applicationSupportsSecureRestorableState:(NSApplication *)app
@@ -115,7 +115,7 @@
 - (void)updateUI
 {
     NSMutableArray *displayInfo = [NSMutableArray array];
-    for (HIDKeyboard *device in [HIDKeyboardManager sharedManager].allDevices)
+    for (HIDDevice *device in [HIDManager sharedManager].allDevices)
     {
         [displayInfo addObject:
             @{

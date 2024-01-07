@@ -9,12 +9,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-extern NSString * const kHIDKeyboardAddedNotificationName;
-extern NSString * const kHIDKeyboardRemovedNotificationName;
+extern NSString * const kHIDDeviceAddedNotificationName;
+extern NSString * const kHIDDeviceRemovedNotificationName;
 
-@interface HIDKeyboardManager : NSObject
+@interface HIDManager : NSObject
 
-+ (HIDKeyboardManager *)sharedManager;
++ (HIDManager *)sharedManager;
 
 + (NSError *)accessDeniedError;
 
