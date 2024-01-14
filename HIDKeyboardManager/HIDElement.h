@@ -1,5 +1,5 @@
 //
-//  HIDValue.h
+//  HIDElement.h
 //  HIDKeyboardManager
 //
 //  Created by Danil Korotenko on 1/7/24.
@@ -10,11 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HIDValue : NSObject
+@interface HIDElement : NSObject
 
-+ (instancetype)createWithValueRef:(IOHIDValueRef)aValueRef;
-
-@property(readonly) NSInteger integerValue;
++ (instancetype)createWithElementRef:(IOHIDElementRef)anElementRef;
 
 @end
 

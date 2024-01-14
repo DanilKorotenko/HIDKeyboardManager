@@ -200,7 +200,7 @@ static void Handle_DeviceRemovalCallback(void *inContext, IOReturn inResult, voi
 static void Handle_DeviceMatchingCallback(void *inContext, IOReturn inResult, void *inSender,
     IOHIDDeviceRef inIOHIDDeviceRef)
 {
-    HIDDevice *device = [HIDDevice createWithDeviceRef:inIOHIDDeviceRef];
+    HIDDevice *device = [HIDDevice createKeyboardWithDeviceRef:inIOHIDDeviceRef];
 
     if (device)
     {
@@ -216,7 +216,7 @@ static void Handle_DeviceMatchingCallback(void *inContext, IOReturn inResult, vo
 static void Handle_DeviceRemovalCallback(void *inContext, IOReturn inResult, void *inSender,
     IOHIDDeviceRef inIOHIDDeviceRef)
 {
-    HIDDevice *device = [HIDDevice createWithDeviceRef:inIOHIDDeviceRef];
+    HIDDevice *device = [HIDDevice createKeyboardWithDeviceRef:inIOHIDDeviceRef];
 
     if (device)
     {

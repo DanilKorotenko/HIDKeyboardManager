@@ -7,6 +7,8 @@
 
 #import "HIDDevice.h"
 
+#import "HIDValue.h"
+
 static void Handle_IOHIDValueCallback(void *inContext,
     IOReturn inResult, void *inSender, IOHIDValueRef inIOHIDValueRef);
 
@@ -30,7 +32,7 @@ static void Handle_IOHIDValueCallback(void *inContext,
 @synthesize productName;
 @synthesize productIDNumber;
 
-+ (instancetype)createWithDeviceRef:(IOHIDDeviceRef)aDeviceRef
++ (instancetype)createKeyboardWithDeviceRef:(IOHIDDeviceRef)aDeviceRef
 {
     if ([HIDDevice isKeyboard:aDeviceRef])
     {
@@ -266,28 +268,17 @@ static void Handle_IOHIDValueCallback(void *inContext,
 
     do
     {
+        HIDValue *value = [HIDValue createWithValueRef:inIOHIDValueRef];
+
         // is this value's element valid?
         IOHIDElementRef tIOHIDElementRef = IOHIDValueGetElement(inIOHIDValueRef);
         if (!tIOHIDElementRef)
         {
             NSLog(@"tIOHIDElementRef == NULL");
-            break;                                                              // (no)
+            break;
         }
 
-        // length ok?
-        CFIndex length = IOHIDValueGetLength(inIOHIDValueRef);
-        if (length > sizeof(double_t))
-        {
-            break;                                                              // (no)
-        }
+        NSLog(@"%@", value);
 
-        // find the element for this IOHIDElementRef
-//        IOHIDElementModel *tIOHIDElementModel = [tIOHIDDeviceWindowCtrl getIOHIDElementModelForIOHIDElementRef:tIOHIDElementRef];
-//        if (tIOHIDElementModel)
-//        {
-//            // update its value
-//            tIOHIDElementModel.phyVal = IOHIDValueGetScaledValue(inIOHIDValueRef,
-//                                                                 kIOHIDValueScaleTypePhysical);
-//        }
     } while (false);
 }

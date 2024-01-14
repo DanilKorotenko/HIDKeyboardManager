@@ -17,6 +17,8 @@
 		DA38FBD02B49BF7A0064FA39 /* HID_device_usage_strings.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA38FBCF2B49BF7A0064FA39 /* HID_device_usage_strings.plist */; };
 		DA38FBD32B4AF8260064FA39 /* HIDValue.m in Sources */ = {isa = PBXBuildFile; fileRef = DA38FBD22B4AF8260064FA39 /* HIDValue.m */; };
 		DA38FBD42B4AF8580064FA39 /* HIDValue.m in Sources */ = {isa = PBXBuildFile; fileRef = DA38FBD22B4AF8260064FA39 /* HIDValue.m */; };
+		DA38FBDB2B4B010C0064FA39 /* HIDElement.m in Sources */ = {isa = PBXBuildFile; fileRef = DA38FBDA2B4B010C0064FA39 /* HIDElement.m */; };
+		DA38FBDC2B4B010F0064FA39 /* HIDElement.m in Sources */ = {isa = PBXBuildFile; fileRef = DA38FBDA2B4B010C0064FA39 /* HIDElement.m */; };
 		DA56D4162B49A08000A6FE78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA56D4152B49A08000A6FE78 /* main.m */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 		DA38FBCF2B49BF7A0064FA39 /* HID_device_usage_strings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HID_device_usage_strings.plist; sourceTree = "<group>"; };
 		DA38FBD12B4AF8260064FA39 /* HIDValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HIDValue.h; sourceTree = "<group>"; };
 		DA38FBD22B4AF8260064FA39 /* HIDValue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HIDValue.m; sourceTree = "<group>"; };
+		DA38FBD92B4B010C0064FA39 /* HIDElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HIDElement.h; sourceTree = "<group>"; };
+		DA38FBDA2B4B010C0064FA39 /* HIDElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HIDElement.m; sourceTree = "<group>"; };
 		DA56D4122B49A08000A6FE78 /* HIDKeyboardManager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HIDKeyboardManager; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA56D4152B49A08000A6FE78 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DA56D41D2B49A9B800A6FE78 /* HIDManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HIDManager.h; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 				DA38FBCC2B49B50C0064FA39 /* HIDDevice.m */,
 				DA38FBD12B4AF8260064FA39 /* HIDValue.h */,
 				DA38FBD22B4AF8260064FA39 /* HIDValue.m */,
+				DA38FBD92B4B010C0064FA39 /* HIDElement.h */,
+				DA38FBDA2B4B010C0064FA39 /* HIDElement.m */,
 			);
 			path = HIDKeyboardManager;
 			sourceTree = "<group>";
@@ -234,6 +240,7 @@
 				DA38FBD42B4AF8580064FA39 /* HIDValue.m in Sources */,
 				DA38FBCA2B49ABF10064FA39 /* HIDManager.m in Sources */,
 				DA38FBCE2B49B5110064FA39 /* HIDDevice.m in Sources */,
+				DA38FBDC2B4B010F0064FA39 /* HIDElement.m in Sources */,
 				DA38FBBC2B49AA860064FA39 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,6 +251,7 @@
 			files = (
 				DA38FBD32B4AF8260064FA39 /* HIDValue.m in Sources */,
 				DA38FBCD2B49B50C0064FA39 /* HIDDevice.m in Sources */,
+				DA38FBDB2B4B010C0064FA39 /* HIDElement.m in Sources */,
 				DA56D4162B49A08000A6FE78 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HIDDevice : NSObject
 
-+ (instancetype)createWithDeviceRef:(IOHIDDeviceRef)aDeviceRef;
++ (instancetype)createKeyboardWithDeviceRef:(IOHIDDeviceRef)aDeviceRef;
 
 + (BOOL)isKeyboard:(IOHIDDeviceRef)aDeviceRef;
 
