@@ -45,8 +45,8 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%@, integerValue: %ld",
-            [super description], (long)self.integerValue];
+    return [NSString stringWithFormat:@"%@, integerValue: %ld, usage: %@",
+        [super description], (long)self.integerValue, self.hidElement.usageString];
 }
 
 #pragma mark -
@@ -54,6 +54,13 @@
 - (NSInteger)integerValue
 {
     return IOHIDValueGetIntegerValue(_valueRef);
+}
+
+- (HIDElement *)hidElement
+{
+    IOHIDElementRef tIOHIDElementRef = IOHIDValueGetElement(_valueRef);
+    HIDElement *element = [HIDElement createWithElementRef:tIOHIDElementRef];
+    return element;
 }
 
 @end

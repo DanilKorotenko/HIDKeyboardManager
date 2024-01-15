@@ -6,7 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#include <IOKit/hid/IOHIDLib.h>
+#import <IOKit/hid/IOHIDLib.h>
+#import "HIDElement.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)createWithValueRef:(IOHIDValueRef)aValueRef;
 
 @property(readonly) NSInteger integerValue;
+
+@property(readonly) HIDElement *hidElement;
 
 @end
 

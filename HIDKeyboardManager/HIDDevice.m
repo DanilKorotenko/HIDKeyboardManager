@@ -266,19 +266,15 @@ static void Handle_IOHIDValueCallback(void *inContext,
 {
     HIDDevice *device = (__bridge HIDDevice *)inContext;
 
-    do
+    HIDValue *value = [HIDValue createWithValueRef:inIOHIDValueRef];
+
+    // is this value's element valid?
+    HIDElement *element = value.hidElement;
+    if (nil == element)
     {
-        HIDValue *value = [HIDValue createWithValueRef:inIOHIDValueRef];
+        NSLog(@"tIOHIDElementRef == NULL");
+        return;
+    }
 
-        // is this value's element valid?
-        IOHIDElementRef tIOHIDElementRef = IOHIDValueGetElement(inIOHIDValueRef);
-        if (!tIOHIDElementRef)
-        {
-            NSLog(@"tIOHIDElementRef == NULL");
-            break;
-        }
-
-        NSLog(@"%@", value);
-
-    } while (false);
+    NSLog(@"%@", value);
 }

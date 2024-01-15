@@ -14,6 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)createWithElementRef:(IOHIDElementRef)anElementRef;
 
+@property (readonly) NSUInteger usagePage;
+@property (readonly) NSString* usagePageString;
+
+@property (readonly) NSUInteger usage;
+@property (readonly) NSString* usageString;
+
 @end
 
 NS_ASSUME_NONNULL_END
